@@ -1,0 +1,32 @@
+{
+  "config": {
+    "generations": 3000,
+    "population": 100,
+    "width": 50,
+    "height": 50,
+    "food": 10,
+    "max_steps": 1000,
+    "max_energy": 100.0,
+    "move_cost": 1.0,
+    "food_energy": 30.0,
+    "seed": 42,
+    "input": 4,
+    "hidden": 8,
+    "output": 4,
+    "elite": 0.1,
+    "mut_rate": 0.05,
+    "mut_strength": 0.2,
+    "out": "results.csv",
+    "run_metadata": "run.json",
+    "dump_frames": true,
+    "frame_every": 1,
+    "frames_dir": "PythonFrameConverter/data",
+    "progress": 10
+  },
+  "generations": 3000,
+  "nn_sizes": [
+    4,
+    8,
+    4
+  ]
+}

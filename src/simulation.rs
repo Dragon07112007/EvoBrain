@@ -33,6 +33,7 @@ pub fn run_simulation_with_rng(config: &Config, rng: &mut StdRng) -> SimulationR
         initialize_population(&mut population, &world, config.max_energy, rng);
         let mut food_eaten_total = 0;
         for step in 0..config.max_steps {
+            
             let mut alive_any = false;
             for creature in &mut population {
                 if !creature.alive {
@@ -51,10 +52,11 @@ pub fn run_simulation_with_rng(config: &Config, rng: &mut StdRng) -> SimulationR
                     }
                 }
             }
-            if config.dump_frames && step % config.frame_every == 0 {
+            if config.dump_frames && step % config.frame_every == 0 && gen == 2999{
                 let _ = dump_frame(&config.frames_dir, gen, step, &world, &population);
             }
             if !alive_any {
+                println!("None alive!");
                 break;
             }
         }

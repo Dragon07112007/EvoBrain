@@ -42,9 +42,9 @@ pub struct Config {
     pub run_metadata: String,
     #[arg(long, default_value_t = false)]
     pub dump_frames: bool,
-    #[arg(long, default_value_t = 10)]
+    #[arg(long, default_value_t = 1)]
     pub frame_every: usize,
-    #[arg(long, default_value = "frames")]
+    #[arg(long, default_value = "PythonFrameConverter/data")]
     pub frames_dir: String,
     #[arg(long, default_value_t = 10)]
     pub progress: usize,

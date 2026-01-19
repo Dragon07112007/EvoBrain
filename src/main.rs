@@ -10,9 +10,12 @@ use evobrain::simulation::run_simulation;
 
 fn main() -> Result<(), Box<dyn Error>> {
     let config = Config::parse();
+    if let Err(message) = config.validate() {
+        return Err(std::io::Error::new(std::io::ErrorKind::InvalidInput, message).into());
+    }
     let result = run_simulation(&config);
     write_csv(&config.out, &result.metrics)?;
-    write_metadata(&config.run_metadata, &config, &result.metrics)?;
+    write_metadata(&config.run_metadata, &config, result.total_generations)?;
     Ok(())
 }
 
@@ -30,7 +33,7 @@ fn write_csv(path: &str, metrics: &[GenerationMetrics]) -> Result<(), Box<dyn Er
 fn write_metadata(
     path: &str,
     config: &Config,
-    metrics: &[GenerationMetrics],
+    total_generations: usize,
 ) -> Result<(), Box<dyn Error>> {
     #[derive(serde::Serialize)]
     struct RunMetadata<'a> {
@@ -41,7 +44,7 @@ fn write_metadata(
 
     let metadata = RunMetadata {
         config,
-        generations: metrics.len(),
+        generations: total_generations,
         nn_sizes: config.nn_sizes(),
     };
     let file = File::create(path)?;

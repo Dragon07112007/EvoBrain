@@ -34,9 +34,28 @@ fn smoke_run_and_csv() {
         input: 4,
         hidden: 6,
         output: 4,
+        selection_method: evobrain::config::SelectionMethod::Roulette,
+        tournament_k: 5,
         elite: 0.2,
         mut_rate: 0.1,
         mut_strength: 0.3,
+        fitness_mode: evobrain::config::FitnessMode::Classic,
+        fitness_food_weight: 1.0,
+        fitness_efficiency_weight: 1.0,
+        fitness_survival_weight: 0.1,
+        fitness_idle_weight: 0.5,
+        fitness_jitter_weight: 0.2,
+        idle_tolerance: 10,
+        logging_mode: evobrain::config::LoggingMode::Full,
+        quick_keep: 2,
+        food_vision_radius: 0,
+        distance_metric: evobrain::config::DistanceMetric::Euclidean,
+        brain_mode: evobrain::config::BrainMode::Fixed,
+        max_hidden_layers: 4,
+        layer_min_neurons: 4,
+        layer_max_neurons: 64,
+        crossover_mode: evobrain::config::CrossoverMode::None,
+        arch_inherit: evobrain::config::ArchInherit::Fitter,
         out: csv_path.to_string_lossy().to_string(),
         run_metadata: run_path.to_string_lossy().to_string(),
         dump_frames: false,
@@ -47,6 +66,7 @@ fn smoke_run_and_csv() {
 
     let result = run_simulation(&config);
     assert_eq!(result.metrics.len(), 3);
+    assert_eq!(result.total_generations, 3);
 
     let mut wtr = csv::Writer::from_path(&config.out).expect("create csv");
     for metric in &result.metrics {
@@ -81,9 +101,28 @@ fn determinism_same_seed() {
         input: 4,
         hidden: 5,
         output: 4,
+        selection_method: evobrain::config::SelectionMethod::Roulette,
+        tournament_k: 5,
         elite: 0.2,
         mut_rate: 0.1,
         mut_strength: 0.2,
+        fitness_mode: evobrain::config::FitnessMode::Classic,
+        fitness_food_weight: 1.0,
+        fitness_efficiency_weight: 1.0,
+        fitness_survival_weight: 0.1,
+        fitness_idle_weight: 0.5,
+        fitness_jitter_weight: 0.2,
+        idle_tolerance: 10,
+        logging_mode: evobrain::config::LoggingMode::Full,
+        quick_keep: 2,
+        food_vision_radius: 0,
+        distance_metric: evobrain::config::DistanceMetric::Euclidean,
+        brain_mode: evobrain::config::BrainMode::Fixed,
+        max_hidden_layers: 4,
+        layer_min_neurons: 4,
+        layer_max_neurons: 64,
+        crossover_mode: evobrain::config::CrossoverMode::None,
+        arch_inherit: evobrain::config::ArchInherit::Fitter,
         out: "unused.csv".to_string(),
         run_metadata: "unused.json".to_string(),
         dump_frames: false,
@@ -103,8 +142,12 @@ fn genome_size_and_mutation() {
     assert_eq!(size, (4 + 1) * 5 + (5 + 1) * 4);
 
     let mut rng = StdRng::seed_from_u64(42);
-    let mut genome = Genome::random(10, &mut rng);
+    let mut genome = Genome::random(vec![4, 2, 4], &mut rng);
     let original = genome.weights.clone();
     genome.mutate(1.0, 0.5, &mut rng);
-    assert!(genome.weights.iter().zip(original.iter()).any(|(a, b)| a != b));
+    assert!(genome
+        .weights
+        .iter()
+        .zip(original.iter())
+        .any(|(a, b)| a != b));
 }

@@ -1,49 +1,39 @@
-use crate::genome::{genome_size, Genome};
+use crate::genome::{genome_size_from_layers, Genome};
 
 #[derive(Debug, Clone)]
 pub struct NeuralNet {
-    input: usize,
-    hidden: usize,
-    output: usize,
     pub genome: Genome,
 }
 
 impl NeuralNet {
-    pub fn new(input: usize, hidden: usize, output: usize, genome: Genome) -> Self {
-        let expected = genome_size(input, hidden, output);
+    pub fn new(genome: Genome) -> Self {
+        let expected = genome_size_from_layers(&genome.layers);
         assert_eq!(genome.weights.len(), expected, "Genome size mismatch");
-        Self {
-            input,
-            hidden,
-            output,
-            genome,
-        }
+        Self { genome }
     }
 
     pub fn forward(&self, inputs: &[f32]) -> Vec<f32> {
-        assert_eq!(inputs.len(), self.input, "Input size mismatch");
+        let layers = &self.genome.layers;
+        let input_size = layers.first().copied().unwrap_or(0);
+        let output_size = layers.last().copied().unwrap_or(0);
+        assert_eq!(inputs.len(), input_size, "Input size mismatch");
         let mut idx = 0;
-        let mut hidden_vals = vec![0.0; self.hidden];
-        for h in 0..self.hidden {
-            let mut sum = self.genome.weights[idx];
-            idx += 1;
-            for i in 0..self.input {
-                sum += inputs[i] * self.genome.weights[idx];
+        let mut prev_vals = inputs.to_vec();
+        for pair in layers.windows(2) {
+            let next_size = pair[1];
+            let mut next_vals = vec![0.0; next_size];
+            for next_val in &mut next_vals {
+                let mut sum = self.genome.weights[idx];
                 idx += 1;
+                for &val in &prev_vals {
+                    sum += val * self.genome.weights[idx];
+                    idx += 1;
+                }
+                *next_val = sum.tanh();
             }
-            hidden_vals[h] = sum.tanh();
+            prev_vals = next_vals;
         }
-
-        let mut outputs = vec![0.0; self.output];
-        for o in 0..self.output {
-            let mut sum = self.genome.weights[idx];
-            idx += 1;
-            for h in 0..self.hidden {
-                sum += hidden_vals[h] * self.genome.weights[idx];
-                idx += 1;
-            }
-            outputs[o] = sum.tanh();
-        }
-        outputs
+        assert_eq!(prev_vals.len(), output_size, "Output size mismatch");
+        prev_vals
     }
 }

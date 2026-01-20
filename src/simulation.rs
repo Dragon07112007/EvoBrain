@@ -6,6 +6,10 @@ use crate::config::LoggingMode;
 use crate::creature::Creature;
 use crate::evolution::{random_population, EvolutionManager};
 use crate::frame_dump::dump_frame;
+use crate::metrics::collector::MetricsCollector;
+use crate::metrics::report::build_generation_report;
+use crate::metrics::selection::parse_gen_selection;
+use crate::metrics::writer::{default_run_id, MetricsWriter};
 use crate::metrics::{compute_metrics, GenerationMetrics};
 use crate::world::World;
 
@@ -25,6 +29,30 @@ pub fn run_simulation_with_rng(config: &Config, rng: &mut StdRng) -> SimulationR
     let mut head_metric: Option<GenerationMetrics> = None;
     let mut tail_metrics: Vec<GenerationMetrics> = Vec::new();
     let mut population = random_population(config.population, config, rng);
+    let log_selection =
+        parse_gen_selection(&config.log_gens).expect("log-gens should be validated");
+    let full_log_selection = config
+        .full_log_gens
+        .as_deref()
+        .map(parse_gen_selection)
+        .transpose()
+        .expect("full-log-gens should be validated");
+    let run_id = config
+        .run_id
+        .clone()
+        .unwrap_or_else(|| default_run_id(config.seed));
+    let mut metrics_writer = if log_selection.is_none() {
+        None
+    } else {
+        match MetricsWriter::new(config, run_id.clone()) {
+            Ok(writer) => Some(writer),
+            Err(err) => {
+                eprintln!("Failed to initialize metrics writer: {err}");
+                None
+            }
+        }
+    };
+    let mut collector = MetricsCollector::new();
     let evolution = EvolutionManager {
         population_size: config.population,
         elite_fraction: config.elite,
@@ -36,7 +64,9 @@ pub fn run_simulation_with_rng(config: &Config, rng: &mut StdRng) -> SimulationR
         let mut world = World::new(config.width, config.height, config.food, rng);
         initialize_population(&mut population, &world, config.max_energy, rng);
         let mut food_eaten_total = 0;
+        let mut steps_run = 0;
         for step in 0..config.max_steps {
+            steps_run = step + 1;
             let mut alive_any = false;
             for creature in &mut population {
                 if !creature.alive {
@@ -62,6 +92,7 @@ pub fn run_simulation_with_rng(config: &Config, rng: &mut StdRng) -> SimulationR
                     creature.energy = (creature.energy + config.food_energy).min(config.max_energy);
                     creature.food_collected = creature.food_collected.saturating_add(1);
                     food_eaten_total += 1;
+                    collector.on_food_eaten(1);
                 }
             }
             if config.dump_frames && step % config.frame_every == 0 && gen == 9999 || gen == 10{
@@ -86,9 +117,39 @@ pub fn run_simulation_with_rng(config: &Config, rng: &mut StdRng) -> SimulationR
             }
         }
 
+        let mut next_population = None;
         if gen + 1 < config.generations {
-            population = evolution.next_generation(&population, config, rng);
+            next_population = Some(evolution.next_generation(&population, config, rng, &mut collector));
         }
+        if let Some(writer) = metrics_writer.as_mut() {
+            let should_log = log_selection.matches(gen as u32);
+            if should_log {
+                let should_full = matches!(config.logging_mode, LoggingMode::Full)
+                    && full_log_selection
+                        .as_ref()
+                        .map(|selection| selection.matches(gen as u32))
+                        .unwrap_or(true);
+                let report = build_generation_report(
+                    gen as u32,
+                    steps_run as u32,
+                    &population,
+                    &collector,
+                    config,
+                    writer.run_id(),
+                    writer.config_hash(),
+                    writer.git_commit(),
+                    should_full,
+                    10,
+                );
+                if let Err(err) = writer.write_generation(&report) {
+                    eprintln!("Failed to write generation report: {err}");
+                }
+            }
+        }
+        if let Some(next_population) = next_population {
+            population = next_population;
+        }
+        collector.reset();
         if config.progress > 0 && (gen + 1) % config.progress == 0 {
             println!("Generation {} complete", gen + 1);
         }

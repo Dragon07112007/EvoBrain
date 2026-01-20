@@ -1,45 +1,47 @@
 use clap::{Parser, ValueEnum};
-use serde::Serialize;
+use serde::{Deserialize, Serialize};
 
-#[derive(Debug, Clone, Copy, Serialize, ValueEnum)]
+use crate::metrics::selection::parse_gen_selection;
+
+#[derive(Debug, Clone, Copy, Serialize, Deserialize, ValueEnum)]
 pub enum SelectionMethod {
     Roulette,
     Tournament,
 }
 
-#[derive(Debug, Clone, Copy, Serialize, ValueEnum)]
+#[derive(Debug, Clone, Copy, Serialize, Deserialize, ValueEnum)]
 pub enum LoggingMode {
     Full,
     Quick,
 }
 
-#[derive(Debug, Clone, Copy, Serialize, ValueEnum)]
+#[derive(Debug, Clone, Copy, Serialize, Deserialize, ValueEnum)]
 pub enum FitnessMode {
     Classic,
     #[value(name = "efficient")]
     EfficientCollector,
 }
 
-#[derive(Debug, Clone, Copy, Serialize, ValueEnum)]
+#[derive(Debug, Clone, Copy, Serialize, Deserialize, ValueEnum)]
 pub enum BrainMode {
     Fixed,
     Evolvable,
 }
 
-#[derive(Debug, Clone, Copy, Serialize, ValueEnum)]
+#[derive(Debug, Clone, Copy, Serialize, Deserialize, ValueEnum)]
 pub enum CrossoverMode {
     None,
     Layer,
     Blend,
 }
 
-#[derive(Debug, Clone, Copy, Serialize, ValueEnum)]
+#[derive(Debug, Clone, Copy, Serialize, Deserialize, ValueEnum)]
 pub enum ArchInherit {
     Fitter,
     Random,
 }
 
-#[derive(Debug, Clone, Copy, Serialize, ValueEnum)]
+#[derive(Debug, Clone, Copy, Serialize, Deserialize, ValueEnum)]
 pub enum DistanceMetric {
     Euclidean,
     Manhattan,
@@ -100,6 +102,12 @@ pub struct Config {
     pub idle_tolerance: u32,
     #[arg(long = "logging", value_enum, default_value_t = LoggingMode::Full)]
     pub logging_mode: LoggingMode,
+    #[arg(long = "log-gens", default_value = "all")]
+    pub log_gens: String,
+    #[arg(long = "full-log-gens")]
+    pub full_log_gens: Option<String>,
+    #[arg(long = "run-id")]
+    pub run_id: Option<String>,
     #[arg(long, default_value_t = 2)]
     pub quick_keep: u32,
     #[arg(long, default_value_t = 0)]
@@ -161,6 +169,14 @@ impl Config {
         }
         if self.max_hidden_layers == 0 {
             return Err("max-hidden-layers must be at least 1".to_string());
+        }
+        if let Err(err) = parse_gen_selection(&self.log_gens) {
+            return Err(format!("invalid log-gens spec: {err}"));
+        }
+        if let Some(ref spec) = self.full_log_gens {
+            if let Err(err) = parse_gen_selection(spec) {
+                return Err(format!("invalid full-log-gens spec: {err}"));
+            }
         }
         Ok(())
     }

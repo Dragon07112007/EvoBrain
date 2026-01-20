@@ -1,6 +1,7 @@
 use rand::rngs::StdRng;
 use rand::{Rng, SeedableRng};
 
+use crate::config::parse_full_log_keep;
 use crate::config::Config;
 use crate::config::LoggingMode;
 use crate::creature::Creature;
@@ -41,6 +42,9 @@ pub fn run_simulation_with_rng(config: &Config, rng: &mut StdRng) -> SimulationR
         .run_id
         .clone()
         .unwrap_or_else(|| default_run_id(config.seed));
+    let full_log_keep = parse_full_log_keep(&config.full_log_keep)
+        .expect("full-log-keep should be validated")
+        .unwrap_or(config.population);
     let mut metrics_writer = if log_selection.is_none() {
         None
     } else {
@@ -139,7 +143,7 @@ pub fn run_simulation_with_rng(config: &Config, rng: &mut StdRng) -> SimulationR
                     writer.config_hash(),
                     writer.git_commit(),
                     should_full,
-                    10,
+                    full_log_keep,
                 );
                 if let Err(err) = writer.write_generation(&report) {
                     eprintln!("Failed to write generation report: {err}");

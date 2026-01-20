@@ -106,6 +106,8 @@ pub struct Config {
     pub log_gens: String,
     #[arg(long = "full-log-gens")]
     pub full_log_gens: Option<String>,
+    #[arg(long = "full-log-keep", default_value = "10")]
+    pub full_log_keep: String,
     #[arg(long = "run-id")]
     pub run_id: Option<String>,
     #[arg(long, default_value_t = 2)]
@@ -178,6 +180,23 @@ impl Config {
                 return Err(format!("invalid full-log-gens spec: {err}"));
             }
         }
+        if let Err(err) = parse_full_log_keep(&self.full_log_keep) {
+            return Err(format!("invalid full-log-keep value: {err}"));
+        }
         Ok(())
     }
+}
+
+pub fn parse_full_log_keep(value: &str) -> Result<Option<usize>, String> {
+    let trimmed = value.trim();
+    if trimmed.eq_ignore_ascii_case("all") {
+        return Ok(None);
+    }
+    let count = trimmed
+        .parse::<usize>()
+        .map_err(|_| "must be a positive integer or 'all'".to_string())?;
+    if count == 0 {
+        return Err("must be greater than 0 or 'all'".to_string());
+    }
+    Ok(Some(count))
 }

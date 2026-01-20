@@ -122,7 +122,7 @@ pub struct Config {
     pub out: String,
     #[arg(long, default_value = "run.json")]
     pub run_metadata: String,
-    #[arg(long, default_value_t = false)]
+    #[arg(long, default_value_t = true)]
     pub dump_frames: bool,
     #[arg(long, default_value_t = 1)]
     pub frame_every: usize,

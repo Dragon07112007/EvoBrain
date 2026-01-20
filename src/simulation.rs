@@ -64,7 +64,7 @@ pub fn run_simulation_with_rng(config: &Config, rng: &mut StdRng) -> SimulationR
                     food_eaten_total += 1;
                 }
             }
-            if config.dump_frames && step % config.frame_every == 0 && gen == 2999 {
+            if config.dump_frames && step % config.frame_every == 0 && gen == 9999 || gen == 10{
                 let _ = dump_frame(&config.frames_dir, gen, step, &world, &population);
             }
             if !alive_any {

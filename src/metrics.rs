@@ -4,6 +4,11 @@ use crate::config::Config;
 use crate::creature::Creature;
 use crate::fitness::compute_fitness;
 
+pub mod collector;
+pub mod report;
+pub mod selection;
+pub mod writer;
+
 #[derive(Debug, Clone, Serialize, PartialEq)]
 pub struct GenerationMetrics {
     pub generation: usize,

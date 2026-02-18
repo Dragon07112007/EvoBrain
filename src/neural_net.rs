@@ -36,4 +36,16 @@ impl NeuralNet {
         assert_eq!(prev_vals.len(), output_size, "Output size mismatch");
         prev_vals
     }
+
+    pub fn param_count(&self) -> u32 {
+        self.genome.weights.len() as u32
+    }
+
+    pub fn layer_count(&self) -> u32 {
+        self.genome.layers.len() as u32
+    }
+
+    pub fn hidden_count(&self) -> u32 {
+        self.genome.layers.len().saturating_sub(2) as u32
+    }
 }

@@ -5,6 +5,7 @@ use crate::config::{ArchInherit, BrainMode, Config, CrossoverMode, SelectionMeth
 use crate::creature::Creature;
 use crate::fitness::compute_fitness;
 use crate::genome::{genome_size_from_layers, layer_weight_ranges, Genome};
+use crate::metrics::collector::MetricsCollector;
 use crate::neural_net::NeuralNet;
 
 #[derive(Debug, Clone)]
@@ -21,6 +22,7 @@ impl EvolutionManager {
         old_population: &[Creature],
         config: &Config,
         rng: &mut impl Rng,
+        collector: &mut MetricsCollector,
     ) -> Vec<Creature> {
         let mut sorted = old_population.to_vec();
         sorted.sort_by(|a, b| {
@@ -52,6 +54,7 @@ impl EvolutionManager {
             }
             let brain = NeuralNet::new(genome);
             next.push(Creature::from_brain(brain, 0, 0, 0.0));
+            collector.on_reproduction();
         }
         next
     }
@@ -278,6 +281,10 @@ mod tests {
             fitness_jitter_weight: 0.2,
             idle_tolerance: 10,
             logging_mode: crate::config::LoggingMode::Full,
+            log_gens: "all".to_string(),
+            full_log_gens: None,
+            full_log_keep: "10".to_string(),
+            run_id: None,
             quick_keep: 2,
             food_vision_radius: 0,
             distance_metric: crate::config::DistanceMetric::Euclidean,
@@ -352,6 +359,10 @@ mod tests {
             fitness_jitter_weight: 0.2,
             idle_tolerance: 10,
             logging_mode: crate::config::LoggingMode::Full,
+            log_gens: "all".to_string(),
+            full_log_gens: None,
+            full_log_keep: "10".to_string(),
+            run_id: None,
             quick_keep: 2,
             food_vision_radius: 0,
             distance_metric: crate::config::DistanceMetric::Euclidean,

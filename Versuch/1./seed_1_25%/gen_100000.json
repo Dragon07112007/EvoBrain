@@ -1,0 +1,931 @@
+{
+  "generation": 100000,
+  "steps_per_gen": 1000,
+  "population_size": 100,
+  "fitness_best": 1092.0,
+  "fitness_mean": 378.65,
+  "fitness_median": 318.5,
+  "fitness_std": 250.41637,
+  "fitness_iqr": 382.0,
+  "food_eaten_total": 1167,
+  "food_eaten_mean": 11.67,
+  "survival_steps_mean": 376.93,
+  "reproductions_total": 0,
+  "params_mean": 434.96,
+  "params_median": 435.0,
+  "params_best": 435,
+  "params_std": 93.13087,
+  "layers_mean": 3.98,
+  "hidden_mean": 1.98,
+  "mutation_rate": 0.1,
+  "mutation_sigma": 0.2,
+  "crossover_rate": null,
+  "selection_mode": "Roulette",
+  "tournament_k": null,
+  "seed": 1,
+  "run_id": "1770989740-1",
+  "config_hash": "fdbbc8e41eb20ae5",
+  "git_commit": "2cec35afc45bee3502f34d4549a7cbf6fbae8ba6",
+  "individuals": [
+    {
+      "id": 3,
+      "fitness": 1092.0,
+      "food_eaten": 40,
+      "survival_steps": 1000,
+      "params": 435,
+      "layers": 4,
+      "hidden": 2
+    },
+    {
+      "id": 86,
+      "fitness": 1054.0,
+      "food_eaten": 43,
+      "survival_steps": 1000,
+      "params": 435,
+      "layers": 4,
+      "hidden": 2
+    },
+    {
+      "id": 95,
+      "fitness": 1017.0,
+      "food_eaten": 37,
+      "survival_steps": 1000,
+      "params": 435,
+      "layers": 4,
+      "hidden": 2
+    },
+    {
+      "id": 93,
+      "fitness": 1009.0,
+      "food_eaten": 36,
+      "survival_steps": 1000,
+      "params": 435,
+      "layers": 4,
+      "hidden": 2
+    },
+    {
+      "id": 23,
+      "fitness": 961.0,
+      "food_eaten": 39,
+      "survival_steps": 961,
+      "params": 435,
+      "layers": 4,
+      "hidden": 2
+    },
+    {
+      "id": 5,
+      "fitness": 933.0,
+      "food_eaten": 32,
+      "survival_steps": 933,
+      "params": 435,
+      "layers": 4,
+      "hidden": 2
+    },
+    {
+      "id": 18,
+      "fitness": 909.0,
+      "food_eaten": 40,
+      "survival_steps": 909,
+      "params": 435,
+      "layers": 4,
+      "hidden": 2
+    },
+    {
+      "id": 83,
+      "fitness": 794.0,
+      "food_eaten": 26,
+      "survival_steps": 794,
+      "params": 435,
+      "layers": 4,
+      "hidden": 2
+    },
+    {
+      "id": 87,
+      "fitness": 768.0,
+      "food_eaten": 26,
+      "survival_steps": 768,
+      "params": 435,
+      "layers": 4,
+      "hidden": 2
+    },
+    {
+      "id": 4,
+      "fitness": 732.0,
+      "food_eaten": 27,
+      "survival_steps": 732,
+      "params": 435,
+      "layers": 4,
+      "hidden": 2
+    },
+    {
+      "id": 49,
+      "fitness": 722.0,
+      "food_eaten": 26,
+      "survival_steps": 722,
+      "params": 435,
+      "layers": 4,
+      "hidden": 2
+    },
+    {
+      "id": 24,
+      "fitness": 652.0,
+      "food_eaten": 24,
+      "survival_steps": 652,
+      "params": 435,
+      "layers": 4,
+      "hidden": 2
+    },
+    {
+      "id": 68,
+      "fitness": 647.0,
+      "food_eaten": 21,
+      "survival_steps": 647,
+      "params": 435,
+      "layers": 4,
+      "hidden": 2
+    },
+    {
+      "id": 90,
+      "fitness": 634.0,
+      "food_eaten": 25,
+      "survival_steps": 634,
+      "params": 435,
+      "layers": 4,
+      "hidden": 2
+    },
+    {
+      "id": 39,
+      "fitness": 632.0,
+      "food_eaten": 23,
+      "survival_steps": 632,
+      "params": 435,
+      "layers": 4,
+      "hidden": 2
+    },
+    {
+      "id": 67,
+      "fitness": 626.0,
+      "food_eaten": 21,
+      "survival_steps": 626,
+      "params": 435,
+      "layers": 4,
+      "hidden": 2
+    },
+    {
+      "id": 29,
+      "fitness": 610.0,
+      "food_eaten": 17,
+      "survival_steps": 610,
+      "params": 435,
+      "layers": 4,
+      "hidden": 2
+    },
+    {
+      "id": 25,
+      "fitness": 603.0,
+      "food_eaten": 19,
+      "survival_steps": 603,
+      "params": 435,
+      "layers": 4,
+      "hidden": 2
+    },
+    {
+      "id": 22,
+      "fitness": 602.0,
+      "food_eaten": 20,
+      "survival_steps": 602,
+      "params": 435,
+      "layers": 4,
+      "hidden": 2
+    },
+    {
+      "id": 71,
+      "fitness": 562.0,
+      "food_eaten": 22,
+      "survival_steps": 562,
+      "params": 435,
+      "layers": 4,
+      "hidden": 2
+    },
+    {
+      "id": 62,
+      "fitness": 554.0,
+      "food_eaten": 21,
+      "survival_steps": 554,
+      "params": 435,
+      "layers": 4,
+      "hidden": 2
+    },
+    {
+      "id": 46,
+      "fitness": 548.0,
+      "food_eaten": 16,
+      "survival_steps": 548,
+      "params": 435,
+      "layers": 4,
+      "hidden": 2
+    },
+    {
+      "id": 73,
+      "fitness": 546.0,
+      "food_eaten": 19,
+      "survival_steps": 546,
+      "params": 435,
+      "layers": 4,
+      "hidden": 2
+    },
+    {
+      "id": 28,
+      "fitness": 545.0,
+      "food_eaten": 17,
+      "survival_steps": 545,
+      "params": 435,
+      "layers": 4,
+      "hidden": 2
+    },
+    {
+      "id": 34,
+      "fitness": 542.0,
+      "food_eaten": 19,
+      "survival_steps": 542,
+      "params": 435,
+      "layers": 4,
+      "hidden": 2
+    },
+    {
+      "id": 15,
+      "fitness": 541.0,
+      "food_eaten": 21,
+      "survival_steps": 541,
+      "params": 435,
+      "layers": 4,
+      "hidden": 2
+    },
+    {
+      "id": 42,
+      "fitness": 532.0,
+      "food_eaten": 15,
+      "survival_steps": 532,
+      "params": 435,
+      "layers": 4,
+      "hidden": 2
+    },
+    {
+      "id": 38,
+      "fitness": 524.0,
+      "food_eaten": 17,
+      "survival_steps": 524,
+      "params": 435,
+      "layers": 4,
+      "hidden": 2
+    },
+    {
+      "id": 50,
+      "fitness": 517.0,
+      "food_eaten": 18,
+      "survival_steps": 517,
+      "params": 435,
+      "layers": 4,
+      "hidden": 2
+    },
+    {
+      "id": 36,
+      "fitness": 505.0,
+      "food_eaten": 16,
+      "survival_steps": 505,
+      "params": 435,
+      "layers": 4,
+      "hidden": 2
+    },
+    {
+      "id": 16,
+      "fitness": 492.0,
+      "food_eaten": 15,
+      "survival_steps": 492,
+      "params": 435,
+      "layers": 4,
+      "hidden": 2
+    },
+    {
+      "id": 51,
+      "fitness": 466.0,
+      "food_eaten": 14,
+      "survival_steps": 466,
+      "params": 435,
+      "layers": 4,
+      "hidden": 2
+    },
+    {
+      "id": 76,
+      "fitness": 459.0,
+      "food_eaten": 15,
+      "survival_steps": 459,
+      "params": 435,
+      "layers": 4,
+      "hidden": 2
+    },
+    {
+      "id": 84,
+      "fitness": 459.0,
+      "food_eaten": 15,
+      "survival_steps": 459,
+      "params": 435,
+      "layers": 4,
+      "hidden": 2
+    },
+    {
+      "id": 88,
+      "fitness": 444.0,
+      "food_eaten": 19,
+      "survival_steps": 444,
+      "params": 435,
+      "layers": 4,
+      "hidden": 2
+    },
+    {
+      "id": 69,
+      "fitness": 425.0,
+      "food_eaten": 14,
+      "survival_steps": 425,
+      "params": 435,
+      "layers": 4,
+      "hidden": 2
+    },
+    {
+      "id": 78,
+      "fitness": 410.0,
+      "food_eaten": 15,
+      "survival_steps": 410,
+      "params": 435,
+      "layers": 4,
+      "hidden": 2
+    },
+    {
+      "id": 98,
+      "fitness": 409.0,
+      "food_eaten": 13,
+      "survival_steps": 409,
+      "params": 435,
+      "layers": 4,
+      "hidden": 2
+    },
+    {
+      "id": 47,
+      "fitness": 400.0,
+      "food_eaten": 10,
+      "survival_steps": 400,
+      "params": 435,
+      "layers": 4,
+      "hidden": 2
+    },
+    {
+      "id": 41,
+      "fitness": 388.0,
+      "food_eaten": 13,
+      "survival_steps": 388,
+      "params": 435,
+      "layers": 4,
+      "hidden": 2
+    },
+    {
+      "id": 99,
+      "fitness": 388.0,
+      "food_eaten": 13,
+      "survival_steps": 388,
+      "params": 435,
+      "layers": 4,
+      "hidden": 2
+    },
+    {
+      "id": 58,
+      "fitness": 387.0,
+      "food_eaten": 10,
+      "survival_steps": 387,
+      "params": 435,
+      "layers": 4,
+      "hidden": 2
+    },
+    {
+      "id": 14,
+      "fitness": 369.0,
+      "food_eaten": 14,
+      "survival_steps": 369,
+      "params": 435,
+      "layers": 4,
+      "hidden": 2
+    },
+    {
+      "id": 33,
+      "fitness": 359.0,
+      "food_eaten": 10,
+      "survival_steps": 359,
+      "params": 435,
+      "layers": 4,
+      "hidden": 2
+    },
+    {
+      "id": 6,
+      "fitness": 354.0,
+      "food_eaten": 11,
+      "survival_steps": 354,
+      "params": 435,
+      "layers": 4,
+      "hidden": 2
+    },
+    {
+      "id": 26,
+      "fitness": 345.0,
+      "food_eaten": 10,
+      "survival_steps": 345,
+      "params": 435,
+      "layers": 4,
+      "hidden": 2
+    },
+    {
+      "id": 59,
+      "fitness": 340.0,
+      "food_eaten": 8,
+      "survival_steps": 340,
+      "params": 435,
+      "layers": 4,
+      "hidden": 2
+    },
+    {
+      "id": 77,
+      "fitness": 333.0,
+      "food_eaten": 9,
+      "survival_steps": 333,
+      "params": 435,
+      "layers": 4,
+      "hidden": 2
+    },
+    {
+      "id": 61,
+      "fitness": 330.0,
+      "food_eaten": 11,
+      "survival_steps": 330,
+      "params": 435,
+      "layers": 4,
+      "hidden": 2
+    },
+    {
+      "id": 10,
+      "fitness": 320.0,
+      "food_eaten": 9,
+      "survival_steps": 320,
+      "params": 435,
+      "layers": 4,
+      "hidden": 2
+    },
+    {
+      "id": 20,
+      "fitness": 317.0,
+      "food_eaten": 8,
+      "survival_steps": 317,
+      "params": 435,
+      "layers": 4,
+      "hidden": 2
+    },
+    {
+      "id": 74,
+      "fitness": 315.0,
+      "food_eaten": 8,
+      "survival_steps": 315,
+      "params": 435,
+      "layers": 4,
+      "hidden": 2
+    },
+    {
+      "id": 70,
+      "fitness": 313.0,
+      "food_eaten": 8,
+      "survival_steps": 313,
+      "params": 435,
+      "layers": 4,
+      "hidden": 2
+    },
+    {
+      "id": 97,
+      "fitness": 311.0,
+      "food_eaten": 8,
+      "survival_steps": 311,
+      "params": 435,
+      "layers": 4,
+      "hidden": 2
+    },
+    {
+      "id": 13,
+      "fitness": 299.0,
+      "food_eaten": 9,
+      "survival_steps": 299,
+      "params": 435,
+      "layers": 4,
+      "hidden": 2
+    },
+    {
+      "id": 82,
+      "fitness": 296.0,
+      "food_eaten": 7,
+      "survival_steps": 296,
+      "params": 435,
+      "layers": 4,
+      "hidden": 2
+    },
+    {
+      "id": 52,
+      "fitness": 277.0,
+      "food_eaten": 8,
+      "survival_steps": 277,
+      "params": 435,
+      "layers": 4,
+      "hidden": 2
+    },
+    {
+      "id": 1,
+      "fitness": 268.0,
+      "food_eaten": 8,
+      "survival_steps": 268,
+      "params": 435,
+      "layers": 4,
+      "hidden": 2
+    },
+    {
+      "id": 35,
+      "fitness": 257.0,
+      "food_eaten": 6,
+      "survival_steps": 257,
+      "params": 435,
+      "layers": 4,
+      "hidden": 2
+    },
+    {
+      "id": 2,
+      "fitness": 253.0,
+      "food_eaten": 8,
+      "survival_steps": 253,
+      "params": 435,
+      "layers": 4,
+      "hidden": 2
+    },
+    {
+      "id": 44,
+      "fitness": 250.0,
+      "food_eaten": 5,
+      "survival_steps": 250,
+      "params": 435,
+      "layers": 4,
+      "hidden": 2
+    },
+    {
+      "id": 8,
+      "fitness": 238.0,
+      "food_eaten": 5,
+      "survival_steps": 238,
+      "params": 435,
+      "layers": 4,
+      "hidden": 2
+    },
+    {
+      "id": 0,
+      "fitness": 233.0,
+      "food_eaten": 5,
+      "survival_steps": 233,
+      "params": 435,
+      "layers": 4,
+      "hidden": 2
+    },
+    {
+      "id": 27,
+      "fitness": 233.0,
+      "food_eaten": 5,
+      "survival_steps": 233,
+      "params": 435,
+      "layers": 4,
+      "hidden": 2
+    },
+    {
+      "id": 92,
+      "fitness": 222.0,
+      "food_eaten": 5,
+      "survival_steps": 222,
+      "params": 435,
+      "layers": 4,
+      "hidden": 2
+    },
+    {
+      "id": 63,
+      "fitness": 218.0,
+      "food_eaten": 4,
+      "survival_steps": 218,
+      "params": 435,
+      "layers": 4,
+      "hidden": 2
+    },
+    {
+      "id": 9,
+      "fitness": 217.0,
+      "food_eaten": 6,
+      "survival_steps": 217,
+      "params": 435,
+      "layers": 4,
+      "hidden": 2
+    },
+    {
+      "id": 89,
+      "fitness": 215.0,
+      "food_eaten": 8,
+      "survival_steps": 215,
+      "params": 435,
+      "layers": 4,
+      "hidden": 2
+    },
+    {
+      "id": 21,
+      "fitness": 191.0,
+      "food_eaten": 5,
+      "survival_steps": 191,
+      "params": 435,
+      "layers": 4,
+      "hidden": 2
+    },
+    {
+      "id": 80,
+      "fitness": 190.0,
+      "food_eaten": 3,
+      "survival_steps": 190,
+      "params": 435,
+      "layers": 4,
+      "hidden": 2
+    },
+    {
+      "id": 53,
+      "fitness": 186.0,
+      "food_eaten": 6,
+      "survival_steps": 186,
+      "params": 435,
+      "layers": 4,
+      "hidden": 2
+    },
+    {
+      "id": 72,
+      "fitness": 171.0,
+      "food_eaten": 4,
+      "survival_steps": 171,
+      "params": 435,
+      "layers": 4,
+      "hidden": 2
+    },
+    {
+      "id": 57,
+      "fitness": 169.0,
+      "food_eaten": 3,
+      "survival_steps": 169,
+      "params": 435,
+      "layers": 4,
+      "hidden": 2
+    },
+    {
+      "id": 43,
+      "fitness": 160.0,
+      "food_eaten": 2,
+      "survival_steps": 160,
+      "params": 435,
+      "layers": 4,
+      "hidden": 2
+    },
+    {
+      "id": 55,
+      "fitness": 160.0,
+      "food_eaten": 2,
+      "survival_steps": 160,
+      "params": 435,
+      "layers": 4,
+      "hidden": 2
+    },
+    {
+      "id": 81,
+      "fitness": 160.0,
+      "food_eaten": 2,
+      "survival_steps": 160,
+      "params": 435,
+      "layers": 4,
+      "hidden": 2
+    },
+    {
+      "id": 91,
+      "fitness": 160.0,
+      "food_eaten": 2,
+      "survival_steps": 160,
+      "params": 435,
+      "layers": 4,
+      "hidden": 2
+    },
+    {
+      "id": 45,
+      "fitness": 157.0,
+      "food_eaten": 2,
+      "survival_steps": 157,
+      "params": 1139,
+      "layers": 5,
+      "hidden": 3
+    },
+    {
+      "id": 54,
+      "fitness": 154.0,
+      "food_eaten": 3,
+      "survival_steps": 154,
+      "params": 435,
+      "layers": 4,
+      "hidden": 2
+    },
+    {
+      "id": 32,
+      "fitness": 150.0,
+      "food_eaten": 2,
+      "survival_steps": 150,
+      "params": 67,
+      "layers": 3,
+      "hidden": 1
+    },
+    {
+      "id": 85,
+      "fitness": 146.0,
+      "food_eaten": 3,
+      "survival_steps": 146,
+      "params": 435,
+      "layers": 4,
+      "hidden": 2
+    },
+    {
+      "id": 60,
+      "fitness": 140.0,
+      "food_eaten": 2,
+      "survival_steps": 140,
+      "params": 435,
+      "layers": 4,
+      "hidden": 2
+    },
+    {
+      "id": 7,
+      "fitness": 130.0,
+      "food_eaten": 1,
+      "survival_steps": 130,
+      "params": 435,
+      "layers": 4,
+      "hidden": 2
+    },
+    {
+      "id": 11,
+      "fitness": 130.0,
+      "food_eaten": 1,
+      "survival_steps": 130,
+      "params": 411,
+      "layers": 4,
+      "hidden": 2
+    },
+    {
+      "id": 30,
+      "fitness": 130.0,
+      "food_eaten": 1,
+      "survival_steps": 130,
+      "params": 435,
+      "layers": 4,
+      "hidden": 2
+    },
+    {
+      "id": 56,
+      "fitness": 130.0,
+      "food_eaten": 1,
+      "survival_steps": 130,
+      "params": 459,
+      "layers": 4,
+      "hidden": 2
+    },
+    {
+      "id": 75,
+      "fitness": 130.0,
+      "food_eaten": 1,
+      "survival_steps": 130,
+      "params": 435,
+      "layers": 4,
+      "hidden": 2
+    },
+    {
+      "id": 96,
+      "fitness": 130.0,
+      "food_eaten": 1,
+      "survival_steps": 130,
+      "params": 435,
+      "layers": 4,
+      "hidden": 2
+    },
+    {
+      "id": 19,
+      "fitness": 126.0,
+      "food_eaten": 1,
+      "survival_steps": 126,
+      "params": 435,
+      "layers": 4,
+      "hidden": 2
+    },
+    {
+      "id": 66,
+      "fitness": 124.0,
+      "food_eaten": 2,
+      "survival_steps": 124,
+      "params": 435,
+      "layers": 4,
+      "hidden": 2
+    },
+    {
+      "id": 40,
+      "fitness": 108.0,
+      "food_eaten": 1,
+      "survival_steps": 108,
+      "params": 301,
+      "layers": 3,
+      "hidden": 1
+    },
+    {
+      "id": 48,
+      "fitness": 107.0,
+      "food_eaten": 2,
+      "survival_steps": 107,
+      "params": 67,
+      "layers": 3,
+      "hidden": 1
+    },
+    {
+      "id": 79,
+      "fitness": 103.0,
+      "food_eaten": 1,
+      "survival_steps": 103,
+      "params": 435,
+      "layers": 4,
+      "hidden": 2
+    },
+    {
+      "id": 94,
+      "fitness": 101.0,
+      "food_eaten": 1,
+      "survival_steps": 101,
+      "params": 301,
+      "layers": 3,
+      "hidden": 1
+    },
+    {
+      "id": 12,
+      "fitness": 100.0,
+      "food_eaten": 0,
+      "survival_steps": 100,
+      "params": 483,
+      "layers": 4,
+      "hidden": 2
+    },
+    {
+      "id": 17,
+      "fitness": 100.0,
+      "food_eaten": 0,
+      "survival_steps": 100,
+      "params": 435,
+      "layers": 4,
+      "hidden": 2
+    },
+    {
+      "id": 31,
+      "fitness": 100.0,
+      "food_eaten": 0,
+      "survival_steps": 100,
+      "params": 435,
+      "layers": 4,
+      "hidden": 2
+    },
+    {
+      "id": 37,
+      "fitness": 100.0,
+      "food_eaten": 0,
+      "survival_steps": 100,
+      "params": 435,
+      "layers": 4,
+      "hidden": 2
+    },
+    {
+      "id": 64,
+      "fitness": 100.0,
+      "food_eaten": 0,
+      "survival_steps": 100,
+      "params": 683,
+      "layers": 5,
+      "hidden": 3
+    },
+    {
+      "id": 65,
+      "fitness": 100.0,
+      "food_eaten": 0,
+      "survival_steps": 100,
+      "params": 435,
+      "layers": 4,
+      "hidden": 2
+    }
+  ]
+}

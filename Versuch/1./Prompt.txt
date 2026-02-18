@@ -1,3 +1,0 @@
-Der folgende Prompt wurde für das erste Szenario verwendet.
-
-cargo run --release -- --generations 50001 --fitness classic --brain evolvable --food-vision-radius 2 --mut-rate 0.1 --log-gens "0-50001/1000" --logging full --population 100 --food 50 --max-hidden-layers 5 --layer-min-neurons 2 --layer-max-neurons 64 --full-log-keep all --mut-strength 0.2 --seed 42

@@ -1,0 +1,22 @@
+Das sind die Befehle die ausgeführt wurden um pro Versuch die jeweils 4 Seeds zu starten.
+
+
+Elitenquote 10%
+
+cargo run --release -- --generations 100001 --fitness classic --brain evolvable --food-vision-radius 2 --mut-rate 0.1 --log-gens "0-100001/1000" --logging full --population 100 --food 50 --max-hidden-layers 5 --layer-min-neurons 2 --layer-max-neurons 64 --full-log-keep all --mut-strength 0.2 --seed 1 --out seed2_10 --elite 0.1
+
+cargo run --release -- --generations 100001 --fitness classic --brain evolvable --food-vision-radius 2 --mut-rate 0.1 --log-gens "0-100001/1000" --logging full --population 100 --food 50 --max-hidden-layers 5 --layer-min-neurons 2 --layer-max-neurons 64 --full-log-keep all --mut-strength 0.2 --seed 2 --out seed2_10 --elite 0.1
+
+cargo run --release -- --generations 100001 --fitness classic --brain evolvable --food-vision-radius 2 --mut-rate 0.1 --log-gens "0-100001/1000" --logging full --population 100 --food 50 --max-hidden-layers 5 --layer-min-neurons 2 --layer-max-neurons 64 --full-log-keep all --mut-strength 0.2 --seed 42 --out seed2_10 --elite 0.1
+
+cargo run --release -- --generations 100001 --fitness classic --brain evolvable --food-vision-radius 2 --mut-rate 0.1 --log-gens "0-100001/1000" --logging full --population 100 --food 50 --max-hidden-layers 5 --layer-min-neurons 2 --layer-max-neurons 64 --full-log-keep all --mut-strength 0.2 --seed 50 --out seed2_10 --elite 0.1
+
+Elitenquote 25%
+
+cargo run --release -- --generations 100001 --brain evolvable --food-vision-radius 2 --mut-rate 0.1 --log-gens "0-100001/1000" --logging full --population 100 --food 50 --max-hidden-layers 5 --layer-min-neurons 2 --layer-max-neurons 64 --full-log-keep all --mut-strength 0.2 --seed 1 --out seed1_25 --elite 0.25
+
+cargo run --release -- --generations 100001 --brain evolvable --food-vision-radius 2 --mut-rate 0.1 --log-gens "0-100001/1000" --logging full --population 100 --food 50 --max-hidden-layers 5 --layer-min-neurons 2 --layer-max-neurons 64 --full-log-keep all --mut-strength 0.2 --seed 2 --out seed2_25  --elite 0.25
+
+cargo run --release -- --generations 100001 --brain evolvable --food-vision-radius 2 --mut-rate 0.1 --log-gens "0-100001/1000" --logging full --population 100 --food 50 --max-hidden-layers 5 --layer-min-neurons 2 --layer-max-neurons 64 --full-log-keep all --mut-strength 0.2 --seed 42 --out seed42_25  --elite 0.25
+
+cargo run --release -- --generations 100001 --brain evolvable --food-vision-radius 2 --mut-rate 0.1 --log-gens "0-100001/1000" --logging full --population 100 --food 50 --max-hidden-layers 5 --layer-min-neurons 2 --layer-max-neurons 64 --full-log-keep all --mut-strength 0.2 --seed 50 --out seed50_25 --elite 0.25

@@ -1,49 +1,17 @@
 # EvoBrain
 
-## Code Map
+Dieses Projekt dient meiner Facharbeit. Alle Ergebnisse der durchgeführten Versuche befinden sich in dem Versuch Ordner. Sowie alle Befehle die die Simulation gestartet haben. 
 
-Relevant modules for the simulation loop and evolution pipeline:
-- `src/simulation.rs`: main generation/step loop.
-- `src/world.rs`: grid world and food queries (including FOV).
-- `src/creature.rs`: creature state, actions, and tracking.
-- `src/evolution.rs`: reproduction, selection, mutation, crossover.
-- `src/genome.rs` / `src/neural_net.rs`: genome representation and neural net forward pass.
-- `src/metrics.rs` / `src/fitness.rs`: fitness evaluation and metrics aggregation.
-- `src/config.rs`: CLI/config definitions and validation.
-- `src/frame_dump.rs`: optional frame snapshots.
 
-## Simulation Features (opt-in)
+EvoBrain ist eine Evolution-Simulation mit einfachen Agenten in einer 2D-Welt.
+Jeder Agent hat ein kleines neuronales Netz als „Gehirn“ und versucht, möglichst effizient Nahrung zu finden.
 
-Default behavior remains unchanged. New features are opt-in via CLI flags unless otherwise noted.
+## Was passiert in der Simulation?
+1. Agenten bewegen sich durch die Welt und sammeln Futter.
+2. Ihr Verhalten wird über eine Fitness-Bewertung beurteilt.
+3. Die besten Agenten werden ausgewählt und erzeugen Nachkommen.
+4. Durch Mutation und Crossover entstehen neue Varianten.
+5. Über viele Generationen verbessert sich das Verhalten schrittweise.
 
-### Selection
-- `--selection roulette|tournament` (default: `roulette`)
-- `--tournament-k <u32>` (default: `5`, used with tournament selection)
-
-### Fitness Modes
-- `--fitness classic|efficient` (default: `classic`)
-- Weights/tunables:
-  - `--fitness-food-weight <f32>`
-  - `--fitness-efficiency-weight <f32>`
-  - `--fitness-survival-weight <f32>`
-  - `--fitness-idle-weight <f32>`
-  - `--fitness-jitter-weight <f32>`
-  - `--idle-tolerance <u32>`
-
-### Food Vision (FOV)
-- `--food-vision-radius <u32>` (default: `0`, disabled)
-- `--distance-metric euclidean|manhattan` (default: `euclidean`)
-
-### Logging
-- `--logging full|quick` (default: `full`)
-- `--quick-keep 2|3` (default: `2`)
-
-### Brain Architecture
-- `--brain fixed|evolvable` (default: `fixed`)
-- `--max-hidden-layers <u32>` (default: `4`)
-- `--layer-min-neurons <u32>` (default: `4`)
-- `--layer-max-neurons <u32>` (default: `64`)
-
-### Crossover
-- `--crossover none|layer|blend` (default: `none`)
-- `--arch-inherit fitter|random` (default: `fitter`)
+## Ziel
+Zu beobachten, wie aus einfachen Regeln und Evolution nach und nach bessere Strategien entstehen.

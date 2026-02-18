@@ -1,6 +1,7 @@
 # EvoBrain
 
 Dieses Projekt dient meiner Facharbeit. Alle Ergebnisse der durchgeführten Versuche befinden sich in dem Versuch Ordner. Sowie alle Befehle die die Simulation gestartet haben. 
+Zudem ist dieses Projekt mit Hilfe von Codex entstanden. Alle ausgeführten Prompts befinden sich in der Datei Prompt.md.
 
 
 EvoBrain ist eine Evolution-Simulation mit einfachen Agenten in einer 2D-Welt.
